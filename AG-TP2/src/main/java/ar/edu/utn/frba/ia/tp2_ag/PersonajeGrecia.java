@@ -4,15 +4,18 @@ import main.java.ar.edu.utn.frba.ia.tp2_ag.Cromosoma.FechaNacimiento;
 import main.java.ar.edu.utn.frba.ia.tp2_ag.Cromosoma.LugarNacimiento;
 import main.java.ar.edu.utn.frba.ia.tp2_ag.Cromosoma.Dedicacion;
 import main.java.ar.edu.utn.frba.ia.tp2_ag.Cromosoma.OtrasActividades;
+import main.java.ar.edu.utn.frba.ia.tp2_ag.Cromosoma.Personaje;
 
-public class Personaje {
+public class PersonajeGrecia {
 
+	private Personaje personaje;
 	private FechaNacimiento fecha_nac;
 	private LugarNacimiento lugar_nac;
 	private Dedicacion dedicacion;
 	private OtrasActividades otras;
 
-	public Personaje(FechaNacimiento fechaNac, LugarNacimiento LugarNac, Dedicacion dedic, OtrasActividades actividades) {
+	public PersonajeGrecia(Personaje pjGrecia, FechaNacimiento fechaNac, LugarNacimiento LugarNac, Dedicacion dedic, OtrasActividades actividades) {
+		this.personaje = pjGrecia;
 		this.fecha_nac = fechaNac;
 		this.lugar_nac = LugarNac;
 		this.dedicacion = dedic;
@@ -22,7 +25,9 @@ public class Personaje {
 	public String printPersonaje(){
 		StringBuffer buffer=new StringBuffer();
 		buffer.append("{");
-		buffer.append("fecha nacimiento:"+this.fecha_nac);
+		buffer.append("Nombre:"+this.personaje);
+		buffer.append(",");
+		buffer.append("Fecha nacimiento:"+this.fecha_nac);
 		buffer.append(",");
 		buffer.append("Lugar Nacimiento:"+this.lugar_nac);
 		buffer.append(",");
@@ -31,6 +36,14 @@ public class Personaje {
 		buffer.append("Otras Actividades:"+this.otras);
 		buffer.append("}");		
 		return buffer.toString();
+	}
+
+	public Personaje getPersonaje() {
+		return personaje;
+	}
+
+	public void setPersonaje(Personaje personaje) {
+		this.personaje = personaje;
 	}
 
 	public FechaNacimiento getFecha_nac() {
