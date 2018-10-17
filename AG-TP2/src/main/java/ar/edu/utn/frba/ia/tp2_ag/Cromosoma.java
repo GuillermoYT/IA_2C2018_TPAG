@@ -129,7 +129,8 @@ public class Cromosoma extends Individuo {
 		personajes.add(getBias());
         
 		//return this.aptitudTales() + this.aptitudPitaco() + this.aptitudSolon() + this.aptitudBias();
-		return penalizacionPorRepetidos() + this.aptitudGeneral(getTales()) + this.aptitudGeneral(getPitaco()) + this.aptitudGeneral(getSolon()) + this.aptitudGeneral(getBias());
+		//return penalizacionPorRepetidos() + this.aptitudGeneral(getTales()) + this.aptitudGeneral(getPitaco()) + this.aptitudGeneral(getSolon()) + this.aptitudGeneral(getBias());
+		return this.aptitudGeneral(getTales()) + this.aptitudGeneral(getPitaco()) + this.aptitudGeneral(getSolon()) + this.aptitudGeneral(getBias());
 	}
 	
 
@@ -280,40 +281,40 @@ public class Cromosoma extends Individuo {
 	}
 	
 	private double aptitudGeneral(PersonajeGrecia personaje){
-		double value=10;
+		double value=0;
 		//Tales nacio en el 660 AC y no lucho contra los persas
 		if(personaje.getPersonaje().equals(Personaje.Tales)) {
 			if(personaje.getFecha_nac().equals(FechaNacimiento.AC660) && !personaje.getOtras().equals(OtrasActividades.LuchaContraPersas)){
-				//value+=30;
+				value+=2;
 			}else{
-				value-=5;
+				value-=3;
 			}				
 		}
 		
 		//Pitaco fue legislador y no nacio en atica. 
 		if(personaje.getPersonaje().equals(Personaje.Pitaco)) {
 			if(personaje.getDedicacion().equals(Dedicacion.Legislador) && !personaje.getLugar_nac().equals(LugarNacimiento.Atica)){
-				//value+=30;
+				value+=2;
 			}else{
-				value-=5;
+				value-=3;
 			}			
 		}
 		
 		//Solon lucho contra los megarenses y no era de mileto
 		if(personaje.getPersonaje().equals(Personaje.Solon)) {
 			if(personaje.getOtras().equals(OtrasActividades.LuchaContraMegarenses) && !personaje.getLugar_nac().equals(LugarNacimiento.Mileto)){
-				//value+=30;
+				value+=2;
 			}else{
-				value-=5;
+				value-=3;
 			}					
 		}
 		
 		//Bias era de Priene y no nacio en el 650 AC
 		if(personaje.getPersonaje().equals(Personaje.Bias)) {
 			if(personaje.getLugar_nac().equals(LugarNacimiento.Priene) && !personaje.getFecha_nac().equals(FechaNacimiento.AC650)){
-				//value+=30;
+				value+=2;
 			}else{
-				value-=5;
+				value-=3;
 			}			
 		}
 		
@@ -321,9 +322,9 @@ public class Cromosoma extends Individuo {
 		if(personaje.getLugar_nac().equals(LugarNacimiento.Tracia)){
 			//Fue tirano de Mitilene y no era estadista
 			if (personaje.getOtras().equals(OtrasActividades.TiranoDeMitilene) && !personaje.getDedicacion().equals(Dedicacion.Estadista)) {
-				//value+=30;				
+				value+=2;				
 			}else {
-				value-=5;				
+				value-=4;				
 			}
 		}
 		
@@ -331,9 +332,9 @@ public class Cromosoma extends Individuo {
 		if(personaje.getDedicacion().equals(Dedicacion.Filosofo)){
 			//se dedico a las matematicas, la astronomia y la fisica y no nacio en el 570 AC
 			if(personaje.getOtras().equals(OtrasActividades.EstudiosDeMatAstFis) && !personaje.getFecha_nac().equals(FechaNacimiento.AC570)) {
-				//value+=30;				
+				value+=2;				
 			}else {
-				value-=5;				
+				value-=4;			
 			}
 		}
 		
@@ -341,9 +342,9 @@ public class Cromosoma extends Individuo {
 		if(personaje.getFecha_nac().equals(FechaNacimiento.AC640)){
 			//Nacio en atica y no era codificador de leyes
 			if(personaje.getLugar_nac().equals(LugarNacimiento.Atica) && !personaje.getDedicacion().equals(Dedicacion.CodificadorLeyes)) {
-				//value+=30;				
+				value+=2;				
 			}else {
-				value-=5;				
+				value-=4;			
 			}
 		}
 		

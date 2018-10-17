@@ -14,7 +14,7 @@ public class AlgoritmoGeneticoTPTest {
 	@Test
 	public void testUnaVuelta() {
 		
-		CriterioDeParo paroInstantaneo = new CantidadDeCiclos(5000L);
+		CriterioDeParo paroInstantaneo = new CantidadDeCiclos(500L);
 		Configuracion config = new ConfiguracionTP();
 		config.setCriterioDeParo(paroInstantaneo);
 		

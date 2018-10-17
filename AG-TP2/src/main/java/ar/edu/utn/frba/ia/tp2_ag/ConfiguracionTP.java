@@ -18,7 +18,7 @@ public class ConfiguracionTP extends Configuracion {
 	
 	public ConfiguracionTP() {
 		
-		super(new AptitudMinima(40), // criterio de paro
+		super(new AptitudMinima(10), // criterio de paro
 				5000, // cantIndividuosIniciales
 				new Ruleta(), // seleccion
 				new BinomialAzar(), // cruzamiento
